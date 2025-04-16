@@ -1,6 +1,6 @@
 def code_message(message):
     message_copy = message.split()
-    alphabet = list("abcdefghijklmnopqrstuvwxyz")
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
     result = ""
 
     for i in range(len(message_copy)):
