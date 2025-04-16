@@ -1,5 +1,5 @@
 def code_message(message):
-    message_copy = message.lower().split()
+    message_copy = message.split()
     alphabet = list("abcdefghijklmnopqrstuvwxyz")
     result = ""
 
@@ -9,20 +9,15 @@ def code_message(message):
             if message_copy[i][j].isalpha(): step += 1
         for k in range(len(message_copy[i])):
             if message_copy[i][k].isalpha():
-                indx = alphabet.index(message_copy[i][k]) + step
+                indx = alphabet.index(message_copy[i][k].lower()) + step
                 if indx >= len(alphabet) : indx -= len(alphabet)
-                result += alphabet[indx]
+                if message_copy[i][k].isupper() : result += alphabet[indx].upper()
+                else: result += alphabet[indx]
             else:
                 result += message_copy[i][k]
         result += " "
-    #message_copy = " ".join(message_copy)
-
-    # for i in range((len(message_copy))):
-    #     if message_copy[i].isalpha() and message_copy[i].isupper():
-    #         result = result[:i] + message_copy[i].upper() + result[i+1:]
 
     return result
 
 
-print(code_message(input("введи строку которую хочешь зашифровать?")))
-# хмммммм почему не работает гит ДА БЛЯТЬ ЕБАТЬ ЕГО В РОТ
+print(code_message(input("введи строку которую хочешь зашифровать?\n")))
